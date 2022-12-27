@@ -4,7 +4,7 @@
     <router-link to="/secondary"><h3>Secondary page</h3></router-link>
   </nav>
   <router-view></router-view>
-  <main>
+ <!--  <main>
     <p class="technologies">
       vue3 + vite + vitest + ts + vue-router4 + pinia + i18n + sass
     </p>
@@ -30,7 +30,7 @@
         </option>
       </select>
     </div>
-  </main>
+  </main> -->
 </template>
 
 <script setup lang="ts">
