@@ -1,1 +1,11 @@
 @import './app';
+@import './colors';
+@import './barHpPokemon';
+
+h1,h2,h3,h4,h5,h6{
+    color: $CARD_TITLE;
+}
+p{
+    color:$CARD_PARAGRAP;
+    font-family: monospace;
+}

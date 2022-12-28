@@ -1,22 +1,24 @@
 <template>
-  <p>{{pokemonController.getAllPokemonsData}}</p>
+<div class="template-pokedex">
+  <div class="card-pokemon" v-for="(pokemon,index) in allPokemonInfo" :key="index">
+    <img class="pokemon-sprite" :src="pokemon.sprites.other.home.front_default" alt="img-pokemon">
+    <div class="card-pokemon--info">
+      <h4 class="pokemon-name">{{ pokemon.name }}</h4>
+      <BarHpPokemon :hp="pokemon.stats[0].base_stat"/>
+    </div>
+  </div>
+</div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed,Ref,ref} from 'vue';
+import BarHpPokemon from '../components/BarHpPokemon.vue';
 import PokemonController from '../controllers/PokemonController';
-let pokemonController = new PokemonController();
-const URL_POKEMON_DATA = 'pokemon?limit=100000&offset=0'; 
 
-onMounted(() => {
-  pokemonController.callAllPokemonData(URL_POKEMON_DATA);
-  allPokemonData
-})
+const URL_POKEMON_DATA:Ref<string> = ref('pokemon?limit=100&offset=0'); 
+const POKEMON_CONTROLLER = new PokemonController(URL_POKEMON_DATA);
 
-let allPokemonData = () => {
-  let allData = ref(pokemonController.getAllPokemonsData);
-  return allData.value
-}
-
+let allPokemonInfo = computed(()=>{return POKEMON_CONTROLLER.getPokemonsInfo});
+POKEMON_CONTROLLER.startControllerPokemon();
 
 </script>

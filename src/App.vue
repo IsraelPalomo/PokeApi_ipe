@@ -41,4 +41,7 @@ const store = globalStore();
 </script>
 <style lang="scss">
 @import './styles/main.scss';
+body{
+  background-color: $BACKGROUND;
+}
 </style>

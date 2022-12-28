@@ -1,0 +1,18 @@
+@import './colors';
+
+.bar-hp-pokemon{
+    width: 100%;
+    display: grid;
+    gap: .1rem;
+    .bar{
+        width: 90%;
+        padding: .1px;
+        font-size: 9px;
+        border-radius: 7px;background-color: $HP;
+        margin: 0 auto;
+        height: .3rem;
+    }
+    .hp{
+        font-weight: 700;
+    }
+}
